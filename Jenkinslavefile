@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('git') {
+            steps {
+                git 'https://github.com/Sahanasana99/DevOpsAddressBook.git'
+            } 
+        }
+        stage ('slack') {
+            steps {
+                slack 'slackSend channel: 'release1', message: 'slack message''
+            }
+        }
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
